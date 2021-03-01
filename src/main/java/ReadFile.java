@@ -8,6 +8,10 @@ public class ReadFile {
     private int i = 1;
     public static int lineNumber = 0;
 
+    /**
+     * Reads the file and splits it in parts for each line. Each line is then stored in an array
+     * @param file the file to be read
+     */
     public ReadFile(String file) {
         try {
             File filePath = new File(file);
@@ -16,12 +20,15 @@ public class ReadFile {
 
             while(scnr.hasNextLine()){
                 String line = scnr.nextLine();
+                //Some cleanup of the text
                 if(line.contains("\"")) {
                     line = line.replace("\"", "");
                     line = line.replace(",A", " A");
+                  //Won't read more of the file if the current line doesn't contain information
                 } else if(!line.contains(",")) {
                     break;
                 }
+                //Each line is stored in the array
                 lineArray[lineNumber] = line;
                 lineNumber++;
             }
@@ -30,8 +37,13 @@ public class ReadFile {
         }
     }
 
+    /**
+     * The line is split after each comma and stored in an array. The information is then set on the person
+     * @param person the person to receive the information
+     */
     public void setInfo(Customer person) {
         String line = lineArray[i];
+        //Splits the line after each comma and is stored in the array
         String[] infoArray = line.split(",", -2);
 
         person.setName(infoArray[0]);

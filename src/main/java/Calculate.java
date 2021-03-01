@@ -2,6 +2,10 @@ public class Calculate {
 
     private double E = 0;
 
+    /**
+     * Calculates the monthly payment for the person
+     * @param person the person to be accessed for information
+     */
     public Calculate(Customer person) {
         double n1, n2;
 
@@ -15,7 +19,7 @@ public class Calculate {
 
         b +=1;
 
-        b = Calculate.power(b,p);
+        b = Calculate.pow(b,p);
 
         n1 = b*b2;
         n2 = b-1;
@@ -23,7 +27,13 @@ public class Calculate {
         E = U*(n1/n2);
     }
 
-    public static double power(double base, int exponent) {
+    /**
+     * Method to calculate pow
+     * @param base the base number
+     * @param exponent the exponent number
+     * @return the result
+     */
+    public static double pow(double base, int exponent) {
         double result = 1;
         if (exponent != 0) {
             int absExponent = exponent > 0 ? exponent : (-1) * exponent;
@@ -41,6 +51,10 @@ public class Calculate {
         return result;
     }
 
+    /**
+     * Returns the result
+     * @return the result
+     */
     public double getResult() {
         return E;
     }

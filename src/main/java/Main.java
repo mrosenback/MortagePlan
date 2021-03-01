@@ -8,11 +8,13 @@ public class Main {
 
         ReadFile file = new ReadFile("prospects.txt");
 
+        //Creates a new person with info from each line from the text file
         for (int i = 0; i < ReadFile.lineNumber-1; i++) {
             Customer person = new Customer();
             file.setInfo(person);
             Calculate result = new Calculate(person);
 
+            //Formats the result
             DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.getDefault());
             formatSymbols.setDecimalSeparator('.');
             DecimalFormat formatter = new DecimalFormat("##.00", formatSymbols);
