@@ -1,6 +1,6 @@
 # MortagePlan
 
--Maven Build Tool
+- Maven Build Tool
 
 
 To build code, start cmd and move to project folder, then type:
